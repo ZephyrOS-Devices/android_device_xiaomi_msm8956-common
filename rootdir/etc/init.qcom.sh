@@ -120,3 +120,9 @@ if [ -f /system/etc/mbn_ota.txt ] && [ ! -f /data/misc/radio/modem_config/mbn_ot
     chown radio.radio /data/misc/radio/modem_config/mbn_ota.txt
 fi
 echo 1 > /data/misc/radio/copy_complete
+
+if [ -d /sys/class/goodix_fp ]; then
+    setprop persist.sys.fp.sensor goodix
+else
+    setprop persist.sys.fp.sensor fpc
+fi
