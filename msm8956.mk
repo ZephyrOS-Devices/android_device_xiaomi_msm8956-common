@@ -105,6 +105,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += telephony-ext
 PRODUCT_BOOT_JARS += telephony-ext
 
+# Consumerir
+PRODUCT_PACKAGES += \
+    consumerir.msm8952
+
 # DataServices
 PRODUCT_PACKAGES += \
     librmnetctl
