@@ -41,9 +41,6 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
         CompoundButton.OnCheckedChangeListener {
 
     private SharedPreferences mPreferences;
-
-    private Switch mSwitch;
-
     private SwitchPreference mPickUpPreference;
     private SwitchPreference mHandwavePreference;
     private SwitchPreference mPocketPreference;
@@ -53,7 +50,6 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
         public void onChange(boolean selfChange) {
             super.onChange(selfChange);
 
-            boolean enabled = Utils.isDozeEnabled(getActivity());
 
             updateSwitches(Utils.isDozeEnabled(getActivity()));
             DozeReceiver.notifyChanged(getActivity());
@@ -92,16 +88,16 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
             showHelp();
         }
 
-        mPickUpPreference =
-                (SwitchPreference) findPreference(Utils.GESTURE_PICK_UP_KEY);
+        mPickUpPreference = (SwitchPreference) findPreference(Utils.GESTURE_PICK_UP_KEY);
+
         mPickUpPreference.setOnPreferenceChangeListener(this);
 
-        mHandwavePreference =
-                (SwitchPreference) findPreference(Utils.GESTURE_HAND_WAVE_KEY);
+        mHandwavePreference = (SwitchPreference) findPreference(Utils.GESTURE_HAND_WAVE_KEY);
+
         mHandwavePreference.setOnPreferenceChangeListener(this);
 
-        mPocketPreference =
-                (SwitchPreference) findPreference(Utils.GESTURE_POCKET_KEY);
+        mPocketPreference = (SwitchPreference) findPreference(Utils.GESTURE_POCKET_KEY);
+	
         mPocketPreference.setOnPreferenceChangeListener(this);
     }
 
@@ -130,14 +126,14 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
         super.onViewCreated(view, savedInstanceState);
 
         View switchBar = view.findViewById(R.id.switch_bar);
-        mSwitch = (Switch) switchBar.findViewById(android.R.id.switch_widget);
-        mSwitch.setChecked(Utils.isDozeEnabled(getActivity()));
-        mSwitch.setOnCheckedChangeListener(this);
+        Switch switchWidget = (Switch) switchBar.findViewById(android.R.id.switch_widget);
+        switchWidget.setChecked(Utils.isDozeEnabled(getActivity()));
+        switchWidget.setOnCheckedChangeListener(this);
 
         switchBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mSwitch.setChecked(!mSwitch.isChecked());
+                switchWidget.setChecked(!switchWidget.isChecked());
             }
         });
     }
