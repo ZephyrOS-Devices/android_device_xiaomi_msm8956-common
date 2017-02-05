@@ -190,7 +190,9 @@ PRODUCT_PACKAGES += \
     libOmxCore \
     libOmxEvrcEnc \
     libOmxQcelp13Enc \
+    libOmxSwVencMpeg4 \
     libOmxSwVencHevc \
+    libOmxVidcCommon \
     libOmxVdec \
     libOmxVenc \
     libstagefrighthw
@@ -238,6 +240,7 @@ PRODUCT_PACKAGES += \
     libqsap_sdk \
     libQWiFiSoftApCfg \
     libwpa_client \
+    libwifi-hal-qcom \
     hostapd \
     wpa_supplicant \
     wpa_supplicant.conf
